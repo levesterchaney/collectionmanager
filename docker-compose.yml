@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_USER: cmuser
+      POSTGRES_PASSWORD: cmdev1
+      POSTGRES_DB: collectionmanager
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  minio:
+    image: quay.io/minio/minio:latest
+    container_name: minio
+    ports:
+      - "9000:9000"    # S3 API Port
+      - "9001:9001"    # Web Console Port
+    environment:
+      MINIO_ROOT_USER: "admin"
+      MINIO_ROOT_PASSWORD: "password"
+    volumes:
+      - ./data:/data   # Persistent storage directory
+    command: server --console-address ":9001" /data
+    restart: always
+
+  server:
+    build: ./backend
+
+  client:
+    build: ./frontend
