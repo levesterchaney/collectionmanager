@@ -51,8 +51,28 @@ frontend/yarn-debug.log*
 frontend/yarn-error.log*
 frontend/.npm
 frontend/.eslintcache
+frontend/.nyc_output
+frontend/coverage/
 frontend/build/
 frontend/dist/
+frontend/.vite/
+
+# Vue.js specific
+frontend/.nuxt/
+frontend/.output/
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# TypeScript build info
+frontend/*.tsbuildinfo
+frontend/node_modules/.tmp/
+
+# Testing
+frontend/test-results/
+frontend/playwright-report/
 
 # Logs
 *.log

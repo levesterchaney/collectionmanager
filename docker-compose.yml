@@ -38,8 +38,15 @@ services:
       - db
     restart: always
 
-#  client:
-#    build: ./frontend
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    restart: always
+    depends_on:
+      - server
 
 volumes:
   pgdata:
