@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres:16
+    image: postgres:15-alpine
     restart: always
     environment:
       POSTGRES_USER: cmuser
@@ -27,6 +27,19 @@ services:
 
   server:
     build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - DATABASE_URL=postgres://cmuser:cmdev1@db:5432/collectionmanager?sslmode=disable
+      - JWT_SECRET=your-development-secret-key
+      - ENVIRONMENT=development
+    depends_on:
+      - db
+    restart: always
 
-  client:
-    build: ./frontend
+#  client:
+#    build: ./frontend
+
+volumes:
+  pgdata:

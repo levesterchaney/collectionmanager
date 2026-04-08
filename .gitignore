@@ -1,3 +1,68 @@
-.env
-
+# AI files
 CLAUDE.md
+
+# Environment files
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+
+# Go build artifacts
+backend/bin/
+backend/*.exe
+backend/*.exe~
+backend/*.dll
+backend/*.so
+backend/*.dylib
+backend/coverage.out
+backend/coverage.html
+
+# Go test artifacts
+backend/*.test
+
+# Go vendor directory
+backend/vendor/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Database docker volume
+data/
+pgdata/
+
+# Node.js (for frontend)
+frontend/node_modules/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.npm
+frontend/.eslintcache
+frontend/build/
+frontend/dist/
+
+# Logs
+*.log
+logs/
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Docker volumes
+volumes/
